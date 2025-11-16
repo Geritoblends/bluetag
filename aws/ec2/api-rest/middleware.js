@@ -3,7 +3,7 @@ require("dotenv").config();
 
 const JWT_SECRET = process.env.JWT_SECRET || "123";
 
-export default const authenticate = async (req, res, next) => {
+const authenticate = async (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) return res.status(401).json({ error: "No token provided" });
 
@@ -17,3 +17,4 @@ export default const authenticate = async (req, res, next) => {
   }
 };
 
+module.exports = authenticate;
