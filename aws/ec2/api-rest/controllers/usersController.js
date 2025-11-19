@@ -1,5 +1,7 @@
 const db = require("../helpers/mysql-config.js");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const JWT_SECRET = process.env.JWT_SECRET || "123";
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -8,13 +10,13 @@ const login = async (req, res) => {
 
   try {
     const [rows] = await db.execute(
-      "SELECT id, bcrypt FROM users WHERE email = ?",
+      "SELECT id, bcrypt FROM Users WHERE email = ?",
       [email],
     );
     const user = rows[0];
     if (!user) return res.status(400).json({ error: "Invalid credentials" });
 
-    const match = await bcrypt.compare(password, user.password_hash);
+    const match = await bcrypt.compare(password, user.bcrypt);
     if (!match) return res.status(400).json({ error: "Invalid credentials" });
 
     const token = jwt.sign({ userId: user.id }, JWT_SECRET, {
@@ -28,24 +30,30 @@ const login = async (req, res) => {
 };
 
 const signup = async (req, res) => {
-  const { name, email, password } = req.body;
-  if (!email || !password || !name)
-    return res
-      .status(400)
-      .json({ error: "Email, nombre y contraseña requeridos" });
+    const { name, email, password } = req.body;
 
-  const hashedPassword = await bcrypt.hash(password, 12);
+    if (!email || !password || !name) {
+        return res.status(400).json({
+            error: "Email, nombre y contraseña requeridos"
+        });
+    }
 
-  const [result] = await db.execute(
-    "INSERT INTO users (name, email, bcrypt) VALUES (?, ?, ?)",
-    [name, email, hashedPassword],
-  );
-  const userId = result.insertId;
+    try {
+        const hashedPassword = await bcrypt.hash(password, 12);
 
-  const token = jwt.sign({ userId }, JWT_SECRET, { expiresIn: "1h" });
-  res.status(201).json({ token });
-  console.error(err);
-  res.status(500).json({ error: "Database error" });
+        const [result] = await db.execute(
+            "INSERT INTO Users (name, email, bcrypt) VALUES (?, ?, ?)",
+            [name, email, hashedPassword]
+        );
+
+        const userId = result.insertId;
+        const token = jwt.sign({ userId }, JWT_SECRET, { expiresIn: "1h" });
+
+        return res.status(201).json({ token });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: "Database error" });
+    }
 };
 
 const deleteUser = async (req, res) => {

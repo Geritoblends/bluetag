@@ -14,7 +14,7 @@ app.use("/", tags);
 app.use("/", updates);
 // app.get("/", (req, res) => res.send("Backend de Bluetag"));
 
-const PORT = 3000;
+const PORT = 5000;
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`),
 );

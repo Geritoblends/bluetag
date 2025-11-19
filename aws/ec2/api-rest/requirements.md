@@ -20,6 +20,7 @@ DELETE /users/:id
 
 4. Updates
 GET /users/:id/tags/:id/updates
+POST /users/:id/tags/:id/updates
 
 
 #### Websocket (frontend<->mqtt_server) (no se incluye en api-rest)

@@ -23,11 +23,12 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE Updates (
-    id INT NOT NULL
+    id INT NOT NULL AUTO_INCREMENT,
     tag_id INT NOT NULL,
     distance_to_router FLOAT,
     time DATE,
     PRIMARY KEY (id),
-    UNIQUE (tag_id, time)
-)
+    UNIQUE (tag_id, time),
+    CONSTRAINT fk_Tags_Updates FOREIGN KEY (tag_id) REFERENCES Tags(id)
+);
 

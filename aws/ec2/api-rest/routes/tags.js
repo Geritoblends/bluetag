@@ -6,10 +6,11 @@ const {
   insertMyTag,
   deleteMyTag,
 } = require("../controllers/tagsController");
+const { authenticate } = require("../middleware");
 
-router.get("/users/:userId/tags", getMyTags);
-router.get("/users/:userId/tags/:tagId", getMyTag);
-router.post("/users/:userId/tags", insertMyTag);
-router.delete("users/:userId/tags/:tagId", deleteMyTag);
+router.get("/users/:userId/tags", authenticate, getMyTags);
+router.get("/users/:userId/tags/:tagId", authenticate, getMyTag);
+router.post("/users/:userId/tags", authenticate, insertMyTag);
+router.delete("users/:userId/tags/:tagId", authenticate, deleteMyTag);
 
 module.exports = router;

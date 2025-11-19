@@ -1,0 +1,161 @@
+.container {
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+.header {
+  border-bottom: 1px solid #e5e7eb;
+  background: white;
+}
+
+.headerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.titleSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.pageDescription {
+  color: #6b7280;
+  margin: 0;
+}
+
+.loading {
+  text-align: center;
+  color: #6b7280;
+  padding: 32px;
+}
+
+.emptyState {
+  margin-top: 32px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+/* Updated card styles for new design */
+.tagCard {
+  border: 1px solid #e5e7eb;
+}
+
+.cardContent {
+  padding: 20px;
+}
+
+.tagHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tagIcon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.tagInfo {
+  flex: 1;
+}
+
+.tagAlias {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.tagMac {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.tagStats {
+  display: flex;
+  gap: 24px;
+  padding: 16px 0;
+  border-top: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f3f4f6;
+  margin-bottom: 16px;
+}
+
+.statItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.statValue {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.tagActions {
+  display: flex;
+  gap: 8px;
+}
+
+.dialogForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Added styles for device selection */
+.deviceOption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.deviceOption:hover {
+  background: #f9fafb;
+}

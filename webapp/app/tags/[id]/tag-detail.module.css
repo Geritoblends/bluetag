@@ -1,0 +1,102 @@
+.container {
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+.header {
+  border-bottom: 1px solid #e5e7eb;
+  background: white;
+}
+
+.headerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.titleSection {
+  margin-bottom: 32px;
+}
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.pageDescription {
+  color: #6b7280;
+  margin: 0;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.statNumber {
+  font-size: 32px;
+  margin-top: 8px;
+}
+
+.updatesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.updateItem {
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.updateInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.updateDistance {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.updateTime {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0;
+}
+
+.emptyText {
+  text-align: center;
+  color: #6b7280;
+  padding: 32px;
+  margin: 0;
+}
+
+.error {
+  max-width: 600px;
+  margin: 64px auto;
+  text-align: center;
+  padding: 0 24px;
+}
